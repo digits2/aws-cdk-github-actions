@@ -19,8 +19,10 @@ function installAwsCdk(){
 	if [ "${INPUT_CDK_VERSION}" == "latest" ]; then
 		if [ "${INPUT_DEBUG_LOG}" == "true" ]; then
 			npm install -g aws-cdk
+			npm install -g cdk-assume-role-credential-plugin
 		else
 			npm install -g aws-cdk >/dev/null 2>&1
+			npm install -g cdk-assume-role-credential-plugin >/dev/null 2>&1
 		fi
 
 		if [ "${?}" -ne 0 ]; then
@@ -31,8 +33,10 @@ function installAwsCdk(){
 	else
 		if [ "${INPUT_DEBUG_LOG}" == "true" ]; then
 			npm install -g aws-cdk@${INPUT_CDK_VERSION}
+			npm install -g cdk-assume-role-credential-plugin
 		else
 			npm install -g aws-cdk@${INPUT_CDK_VERSION} >/dev/null 2>&1
+			npm install -g cdk-assume-role-credential-plugin >/dev/null 2>&1
 		fi
 
 		if [ "${?}" -ne 0 ]; then
