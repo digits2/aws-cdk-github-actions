@@ -65,8 +65,8 @@ function installPipRequirements(){
 }
 
 function runCdk(){
-	echo "Run cdk ${INPUT_CDK_SUBCOMMAND} ${*} \"${INPUT_CDK_STACK}\" --app \"${INPUT_CDK_STACK_SOURCE}\""
-	output=$(cdk ${INPUT_CDK_SUBCOMMAND} ${*} "${INPUT_CDK_STACK}" --app "${INPUT_CDK_STACK_SOURCE}" -v 2>&1)
+	echo "Run cdk ${INPUT_CDK_SUBCOMMAND} ${*} --app \"${INPUT_CDK_STACK_SOURCE}\" -v"
+	output=$(cdk ${INPUT_CDK_SUBCOMMAND} ${*} "${INPUT_CDK_STACK}" --app \"${INPUT_CDK_STACK_SOURCE}\" --plugin cdk-assume-role-credential-plugin -v 2>&1)
 	exitCode=${?}
 	echo ::set-output name=status_code::${exitCode}
 	echo "${output}"
