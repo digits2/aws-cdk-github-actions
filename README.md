@@ -15,7 +15,7 @@ on: [push]
 
 jobs:
   aws_cdk:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
 
       - name: cdk diff
@@ -62,7 +62,7 @@ on: [push]
 
 jobs:
   aws_cdk:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - name: Assume Role
         uses: youyo/awscredswrap@master
